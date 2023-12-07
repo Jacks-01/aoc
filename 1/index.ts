@@ -15,14 +15,22 @@ console.log('this is our input', input);
  * @param {Array} input an array of strings
  */
 const getInputValue = (input: Array<string>): number => {
-	console.log('Does our input look correct?', input);
+	// console.log('Does our input look correct?', input);
 	let totalSum: number = 0;
-	return totalSum;
+
+	input.forEach((inputString) => {
+		let firstNumber = getFirstNumber(inputString);
+		let lastNumber = getLastNumber(inputString);
+
+		totalSum += firstNumber + lastNumber;
+    });
+
+    console.log(totalSum);
+    return totalSum;
+    
 };
 
-getInputValue(input);
-
-const getFirstNumber = (input: string): number | undefined => {
+const getFirstNumber = (input: string): number => {
 	console.log('getFirstNumber input:', input);
 	let firstNumber: number = 0;
 
@@ -40,8 +48,38 @@ const getFirstNumber = (input: string): number | undefined => {
 
 	if (!firstNumber) {
 		console.log('no number in the input!');
-		return undefined;
+		return 0;
 	}
+	return firstNumber;
 };
 
-getFirstNumber('twoknbxlczgd9');
+const getLastNumber = (input: string): number => {
+	let lastNumber: number = 0;
+	const reversedInput = reverseString(input);
+
+	for (let i = 0; i < reversedInput.length; i++) {
+		const element: string = reversedInput.charAt(i);
+
+		if (parseInt(element)) {
+			lastNumber = parseInt(element);
+			return lastNumber;
+		} else {
+			i++;
+		}
+	}
+
+	if (!lastNumber) {
+		console.log('no number in the input!');
+		return 0;
+	}
+
+	return lastNumber;
+};
+
+const reverseString = (input: string): string => {
+	let reversedString: string = input.split('').reverse().join('');
+	return reversedString;
+};
+
+// getFirstNumber('7twoknbxlczgd9');
+// getLastNumber('4jack9');
