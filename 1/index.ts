@@ -3,13 +3,15 @@
  */
 
 import { input } from './input.ts';
-console.log('this is our input', input);
+const testInput = ['1abc2', 'pqr3stu8vwx', 'a1b2c3d4e5f', 'treb7uchet'];
+// console.log('this is our input', input);
 
 // Step 1: Find the first integer in the string
 //! Can create a function that starts at the beginning and finds the first number
 //! cn create another function that reverses the string and finds the last number
 //! Add the two numbers and move to the next value
 
+console.time('aoc1');
 /**
  *
  * @param {Array} input an array of strings
@@ -20,57 +22,62 @@ const getInputValue = (input: Array<string>): number => {
 
 	input.forEach((inputString) => {
 		let firstNumber = getFirstNumber(inputString);
-		let lastNumber = getLastNumber(inputString);
+        let lastNumber = getLastNumber(inputString);
+        let combinedValue = parseInt((firstNumber + lastNumber));
 
-		totalSum += firstNumber + lastNumber;
-    });
+        totalSum += combinedValue;
+	});
 
-    console.log(totalSum);
-    return totalSum;
-    
+	// console.log(totalSum);
+	return totalSum;
 };
 
-const getFirstNumber = (input: string): number => {
-	console.log('getFirstNumber input:', input);
-	let firstNumber: number = 0;
+const getFirstNumber = (input: string): string => {
+	// console.log('getFirstNumber input:', input);
+    let firstNumber: string = '';
+    // console.log('getFirstNumber() input:', input)
 
 	for (let i = 0; i < input.length; i++) {
-		const element: string = input.charAt(i);
+        let element: string = input.charAt(i);
+        // console.log('element:', element)
 
-		if (parseInt(element)) {
-			firstNumber += parseInt(element);
-			console.log(firstNumber);
+        if (parseInt(element)) {
+			firstNumber = element;
+			// console.log('number', firstNumber);
 			return firstNumber;
 		} else {
-			i++;
-		}
+            // console.log('letter');
+            i++;
+        }
+        i++;
 	}
 
-	if (!firstNumber) {
+	if (firstNumber.length) {
 		console.log('no number in the input!');
-		return 0;
+		return '';
 	}
 	return firstNumber;
 };
 
-const getLastNumber = (input: string): number => {
-	let lastNumber: number = 0;
+const getLastNumber = (input: string): string => {
+	let lastNumber: string = '';
 	const reversedInput = reverseString(input);
 
 	for (let i = 0; i < reversedInput.length; i++) {
 		const element: string = reversedInput.charAt(i);
 
 		if (parseInt(element)) {
-			lastNumber = parseInt(element);
+			lastNumber = element;
 			return lastNumber;
 		} else {
 			i++;
-		}
+        }
+        i++;
 	}
 
 	if (!lastNumber) {
 		console.log('no number in the input!');
-		return 0;
+		return '';
 	}
 
 	return lastNumber;
@@ -81,5 +88,15 @@ const reverseString = (input: string): string => {
 	return reversedString;
 };
 
-// getFirstNumber('7twoknbxlczgd9');
-// getLastNumber('4jack9');
+// getFirstNumber(testInput[1])
+console.log(getLastNumber(testInput[1]))
+// console.log('t1', getFirstNumber(testInput[0]));
+// console.log('t1', getLastNumber(testInput[0]));
+// console.log('t2', getFirstNumber(testInput[1]));
+// console.log('t2', getLastNumber(testInput[1]));
+// console.log('t3', getFirstNumber(testInput[2]));
+// console.log('t3', getLastNumber(testInput[2]));
+// console.log('t4', getFirstNumber(testInput[3]));
+// console.log('t4', getLastNumber(testInput[3]));
+
+console.timeEnd('aoc1');
