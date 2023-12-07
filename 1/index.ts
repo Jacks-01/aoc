@@ -28,7 +28,6 @@ const getInputValue = (input: Array<string>): number => {
 
         let sum = parseInt(combinedValue)
         totalSum += sum
-        console.log('???', typeof(parseInt(combinedValue)))
 	});
 
 	// console.log(totalSum);
@@ -56,7 +55,7 @@ const getFirstNumber = (input: string): string => {
 	}
 
 	if (firstNumber.length === 0) {
-		console.log('no number in the input!');
+		console.log('no number in the input!', input);
 		return '';
 	}
 	return firstNumber;
@@ -67,7 +66,7 @@ const getLastNumber = (input: string): string => {
 	const reversedInput = reverseString(input);
 
 	for (let i = 0; i < reversedInput.length; i++) {
-		const element: string = reversedInput.charAt(i);
+        const element: string = reversedInput.charAt(i);
 
 		if (parseInt(element)) {
 			lastNumber = element;
@@ -79,7 +78,7 @@ const getLastNumber = (input: string): string => {
 	}
 
 	if (lastNumber.length === 0) {
-		console.log('no number in the input!');
+		console.log('no number in the input!', input);
 		return '';
 	}
 
