@@ -22,7 +22,7 @@ const getInputValue = (input: Array<string>): number => {
 
 getInputValue(input);
 
-const getFirstNumber = (input: string): number => {
+const getFirstNumber = (input: string): number | undefined => {
 	console.log('getFirstNumber input:', input);
 	let firstNumber: number = 0;
 
@@ -32,12 +32,16 @@ const getFirstNumber = (input: string): number => {
 		if (parseInt(element)) {
 			firstNumber += parseInt(element);
 			console.log(firstNumber);
-            return firstNumber;
-        }
-        else {
-            i++;
-        }
+			return firstNumber;
+		} else {
+			i++;
+		}
+	}
+
+	if (!firstNumber) {
+		console.log('no number in the input!');
+		return undefined;
 	}
 };
 
-getFirstNumber('twoknbxlczgd5');
+getFirstNumber('twoknbxlczgd9');
