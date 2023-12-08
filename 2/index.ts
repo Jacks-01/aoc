@@ -11,12 +11,13 @@ const redTotal: number = 12;
 const greenTotal: number = 13;
 const blueTotal: number = 14;
 
-const checkGames = (testGames: string[]): any => {
+const checkGames = (input): any => {
 	// let impossibleValue: number = 0;
-	// return impossibleValue;
-
+    // return impossibleValue;
+    
+    // const lines = fs.readFileSync(file, 'utf-8').trim().split('\n'); // read the file
 	//* First, lets split the games into their rounds.
-	let round1 = testGames[1].split(': ')[1]; // grab everything after the colon so we can work with the rounds
+	let round1 = input[1].split(': ')[1]; // grab everything after the colon so we can work with the rounds
 
 	console.log(round1);
 };
