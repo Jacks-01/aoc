@@ -22,12 +22,14 @@ const checkGames = (input): any => {
 			let results: string[] = round.split(', '); //* Now we have each round in a game parsed into an array
 			return results.every((result) => {
 				const [count, color] = result.split(' '); // split each color and value
-				return colorTotals[color] >= count; // compare them to our colorTotals object.
+                return colorTotals[color] >= count; // compare them to our colorTotals object.
             });
 		});
 
-		return roundsArray;
-	});
+        
+		return roundsArray.every((p) => p);
+    });
+    
 	console.log('this is our output', output);
 };
 
