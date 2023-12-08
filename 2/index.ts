@@ -5,9 +5,20 @@ const testInput: string[] = [
 	'Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red',
 	'Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green'
 ];
+import fs from 'fs';
 
 const redTotal: number = 12;
 const greenTotal: number = 13;
 const blueTotal: number = 14;
 
+const checkGames = (testGames: string[]): any => {
+	// let impossibleValue: number = 0;
+	// return impossibleValue;
 
+	//* First, lets split the games into their rounds.
+	let round1 = testGames[1].split(': ')[1]; // grab everything after the colon so we can work with the rounds
+
+	console.log(round1);
+};
+
+console.log(checkGames(testInput));
