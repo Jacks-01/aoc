@@ -16,7 +16,7 @@ const testInput: string[] = [
 
 const checkGames = (input): any => {
 	const lines: string[] = fs.readFileSync(input, 'utf-8').trim().split('\r'); // read the file
-    console.log(lines)
+    // console.log(lines)
 	let output: any[] = lines.map((game) => {
 		let gamesArray = game.split(': ')[1].split('; '); //* First, lets split the games into their rounds.
 		let roundsArray = gamesArray.map((round) => {
