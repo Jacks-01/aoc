@@ -7,9 +7,11 @@ const testInput: string[] = [
 ];
 import fs from 'fs';
 
-const redTotal: number = 12;
-const greenTotal: number = 13;
-const blueTotal: number = 14;
+const colorTotals: Object = {
+	red: 12,
+	green: 13,
+	blue: 14
+};
 
 const checkGames = (input): any => {
 	// const lines = fs.readFileSync(file, 'utf-8').trim().split('\n'); // read the file
@@ -17,10 +19,12 @@ const checkGames = (input): any => {
 	let output: string[] = input.map((game) => {
 		let gamesArray = game.split(': ')[1].split('; '); //* First, lets split the games into their rounds.
 		let roundsArray = gamesArray.map((round) => {
-			return round.split(', '); //* Now we have each round in a game parsed into an array
+			let results: string[] = round.split(', '); //* Now we have each round in a game parsed into an array
+			return results.every((result) => {
+				const [count, color] = result.split(' '); // split each color and value
+				return colorTotals[color] >= count; // compare them to our colorTotals object.
+            });
 		});
-
-		// Since the number is at the very start of the string, it should be easy to pull the value out. We just need to figure out how we are going to associate it with the value.
 
 		return roundsArray;
 	});
