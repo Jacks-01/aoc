@@ -30,20 +30,20 @@ const getInputValue = (input: Array<string>): number => {
 };
 
 const getFirstNumber = (input: string): string => {
-	console.log('getFirstNumber input:', input);
+	// console.log('getFirstNumber input:', input);
 	let firstNumber: string = '';
 	// console.log('getFirstNumber() input:', input)
 
 	for (let i = 0; i < input.length; i++) {
 		let element: string = input.charAt(i);
-		console.log('element:', element);
+		// console.log('element:', element);
 
 		if (parseInt(element)) {
 			firstNumber = element;
-			console.log('number', firstNumber);
+			// console.log('number', firstNumber);
 			return firstNumber;
 		} else {
-			console.log('letter');
+			// console.log('letter');
 		}
 	}
 
@@ -80,14 +80,14 @@ const reverseString = (input: string): string => {
 	return reversedString;
 };
 
-console.log('t1', getFirstNumber(testInput[2]));
-console.log('t1', getLastNumber(testInput[2]));
-// console.log('t2', getFirstNumber(testInput[1]));
-// console.log('t2', getLastNumber(testInput[1]));
-// console.log('t3', getFirstNumber(testInput[2]));
-// console.log('t3', getLastNumber(testInput[2]));
-// console.log('t4', getFirstNumber(testInput[3]));
-// console.log('t4', getLastNumber(testInput[3]));
+console.log('t1', getFirstNumber(testInput[0]));
+console.log('t1', getLastNumber(testInput[0]));
+console.log('t2', getFirstNumber(testInput[1]));
+console.log('t2', getLastNumber(testInput[1]));
+console.log('t3', getFirstNumber(testInput[2]));
+console.log('t3', getLastNumber(testInput[2]));
+console.log('t4', getFirstNumber(testInput[3]));
+console.log('t4', getLastNumber(testInput[3]));
 
-// console.log(getInputValue(testInput));
+console.log(getInputValue(testInput));
 // console.timeEnd('aoc1');
