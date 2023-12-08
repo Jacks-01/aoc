@@ -11,16 +11,20 @@ const redTotal: number = 12;
 const greenTotal: number = 13;
 const blueTotal: number = 14;
 
-const checkGames = (input): any => {    
-    // const lines = fs.readFileSync(file, 'utf-8').trim().split('\n'); // read the file
-	//* First, lets split the games into their rounds.
-	let round1 = input[1].split(': ')[1]; // grab everything after the colon so we can work with the rounds
-    console.log(round1);
-    
-    let output: string[] = input.map((game) => {
-       return game.split(': ')[1];
-    })
-    console.log('this is our output', output)
+const checkGames = (input): any => {
+	// const lines = fs.readFileSync(file, 'utf-8').trim().split('\n'); // read the file
+
+	let output: string[] = input.map((game) => {
+		let gamesArray = game.split(': ')[1].split('; '); //* First, lets split the games into their rounds.
+		let roundsArray = gamesArray.map((round) => {
+			return round.split(', '); //* Now we have each round in a game parsed into an array
+		});
+
+		// Since the number is at the very start of the string, it should be easy to pull the value out. We just need to figure out how we are going to associate it with the value.
+
+		return roundsArray;
+	});
+	console.log('this is our output', output);
 };
 
 console.log(checkGames(testInput));
