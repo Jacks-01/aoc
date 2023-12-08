@@ -80,14 +80,14 @@ const reverseString = (input: string): string => {
 	return reversedString;
 };
 
-console.log('t1', getFirstNumber(testInput[0]));
-console.log('t1', getLastNumber(testInput[0]));
-console.log('t2', getFirstNumber(testInput[1]));
-console.log('t2', getLastNumber(testInput[1]));
-console.log('t3', getFirstNumber(testInput[2]));
-console.log('t3', getLastNumber(testInput[2]));
-console.log('t4', getFirstNumber(testInput[3]));
-console.log('t4', getLastNumber(testInput[3]));
+// console.log('t1', getFirstNumber(testInput[0]));
+// console.log('t1', getLastNumber(testInput[0]));
+// console.log('t2', getFirstNumber(testInput[1]));
+// console.log('t2', getLastNumber(testInput[1]));
+// console.log('t3', getFirstNumber(testInput[2]));
+// console.log('t3', getLastNumber(testInput[2]));
+// console.log('t4', getFirstNumber(testInput[3]));
+// console.log('t4', getLastNumber(testInput[3]));
 
-console.log(getInputValue(testInput));
+console.log(getInputValue(input));
 // console.timeEnd('aoc1');
